@@ -1,7 +1,9 @@
 ---
 	import Navigation from '../components/Navigation.astro';
+	import BaseLayout from '../layouts/BaseLayout.astro';
 	import Social from '../components/Social.astro';
-	const pageTitle = "Home Page";
+	import Greeting from '../components/Greeting.jsx';
+	const pageTitle = "Home Page 123123123";
 ---
 
 <html lang="en">
@@ -14,6 +16,10 @@
 	</head>
 	<body>
 		<h1>{pageTitle}</h1>
+		<BaseLayout pageTitle={pageTitle}>
+			<h2>My awesome blog subtitle</h2>
+			<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+		</BaseLayout>
 		<Navigation />
 		<Social platform="twitter" username="astrodotbuild" />
 		<Social platform="github" username="withastro" />
